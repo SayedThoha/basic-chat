@@ -1,0 +1,19 @@
+@if(!isJoined){
+<div>
+  <input type="text" placeholder="enter your name" [(ngModel)]="name" />
+  <button (click)="join()">join</button>
+</div>
+}@else{
+<div>
+  <h1>{{name}}</h1>
+  <div>
+    <ul>
+      @for (item of messages; track $index ) {
+      <li>{{ item.name }}:{{ item.chat }}</li>
+      }
+    </ul>
+  </div>
+  <input type="text" placeholder="enter your message" [(ngModel)]="message" />
+  <button (click)="send()">send</button>
+</div>
+}
